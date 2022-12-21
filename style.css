@@ -1,0 +1,22 @@
+body{
+    font-family: monospace;
+    font-size: 1.5rem;
+    /*text-transform: capitalize;*/
+    background-color: #111111;
+    color: white;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+    margin-top: 7%;
+    border: 1.5px solid gainsboro;
+    border-radius: 4px;
+    background-color: rgba(222,242,255, 1);
+  }
+  #score{
+    text-align: center;
+  }
+
+  #gamename{
+    text-align: right;
+  }
