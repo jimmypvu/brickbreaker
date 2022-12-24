@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 const ballRadius = 10;
 let x = canvas.width / 2;
 let y = canvas.height - 30;
-let dx = 2;
+let dx = 2; //Math.ceil(Math.random()*3) * (Math.round(Math.random()) ? 1 : -1);
 let dy = -2;
 
 // Set up bricks
