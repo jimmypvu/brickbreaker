@@ -6,8 +6,8 @@ const ctx = canvas.getContext('2d');
 const ballRadius = 10;
 let x = canvas.width / 2;
 let y = canvas.height - 30;
-let dx = 2; //Math.ceil(Math.random()*3) * (Math.round(Math.random()) ? 1 : -1);
-let dy = -2;
+let dx = (Math.floor(Math.random() * (2 - 2 + 1)) + 2) * (Math.round(Math.random()) ? 1 : -1);
+let dy = -(Math.floor(Math.random() * (2 - 2 + 1)) + 2) * (Math.round(Math.random()) ? 1 : -1);
 
 // Set up bricks
 const brickRowCount = 4;
@@ -29,6 +29,13 @@ for (let c = 0; c < brickColumnCount; c++) {
 // Set up paddle
 const paddleHeight = 10;
 let paddleWidth = 150;
+
+/*if(Math.abs(dx) + Math.abs(dy) >= 5){
+  paddleWidth = 180;
+}*/
+
+//document.querySelector("#diagnostics").innerHTML = paddleWidth + " " + dx + " " + dy;
+
 let paddleX = (canvas.width - paddleWidth) / 2;
 
 // Set up keyboard controls
@@ -129,8 +136,8 @@ for (let r = 0; r < brickRowCount; r++) {
   let b = bricks[c][r];
   if (b.status === 1) {
     if (x > b.x - ballRadius && x < b.x + brickWidth + ballRadius && y > b.y - ballRadius && y < b.y + brickHeight + ballRadius) {
-      dy = -dy;
       b.status = 0;
+      dy = -dy;
       score++;
       document.getElementById('score').innerHTML = 'Score: ' + score;
       dx *= 1.08;
